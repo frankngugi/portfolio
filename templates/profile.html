@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>Welcome, {{ name }}!</h1>
+    <p>Your email: {{ email }}</p>
+
+    <h2>Registered Events</h2>
+    <ul>
+        {% for event in registered_events %}
+            <li>{{ event.name }} (ID: {{ event.id }})</li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST">
+        {% csrf_token %}  <input type="hidden" name="action" value="addEvent">
+        <select name="event">
+            </select>
+        <button type="submit">Register</button>
+    </form>
+
+    <form method="POST">
+        {% csrf_token %}
